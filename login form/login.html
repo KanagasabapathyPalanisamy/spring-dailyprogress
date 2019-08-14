@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+        <div>
+                <h1>login<span style = "color:rgb(235, 119, 11)">form</span></h1>
+                <label>USER<span style = "color:rgb(228, 18, 98)">NAME</span></label><br>
+                <input type="text" id='a'name="username"placeholder="Username" required><br>
+                <label>E-<span style = "color:rgb(228, 18, 98)">MAIL</span></label><br>
+                <input type="text" id='a'name="E-MAIL"placeholder="e-mail"required>
+                <br>
+                <label>PASS<span style = "color:rgb(228, 18, 98)">WARD</span></label><br>
+                <input type="password" id='a'placeholder="passward"required>  <br>
+                <br>
+                <input type="button" id='b' value="login">
+                <br>
+               
+        </div>
+        <p><h3>Java Script </h3></p>
+        <p>javascript alert!!!</p>
+        <button type="button" onclick="alert('This is a alert from javascript!!!')">show alert</button>
+        <marquee direction='down'><p id='m'> To dispaly date using inbulid functions(Date)!!!</p></marquee>
+        <button type="button" onclick="document.getElementById('day').innerHTML=Date()">click to see Date</button>
+        <p id='day'></p>
+        <p>Enter the name to the browser window!!!</p>
+        <button type="button" onclick=promptUser()>name pls!!!</button>
+        <script>
+                function promptUser(){
+                        var text;
+                        var name = window.prompt("Enter your name") 
+                        if(name!=null||name==""){
+                                text="hello"+name;
+                        }
+                        document.getElementById("name").innerHTML=text;
+                }
+                </script>
+                <div class="sa">
+                <h1 id="title">hello plunkers!!!</h1>
+                <p id ="text"> click the button!!!</p>
+                <button id="ok">click me!</menu></button>
+        </div>
+        <script src="script.js"></script>
+</body>
+</html>
