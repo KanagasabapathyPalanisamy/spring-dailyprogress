@@ -1,0 +1,101 @@
+//command line Interface
+console.log("hello guys...welcome to Amazing world!!!");
+console.log("The above display is done by command line interface");
+/*//setting up the server locally...
+var http = require('http');
+
+function onRequest(request,responce){
+responce.writeHead(200,{'context-text':'text/plain'});
+responce.write('welcome kags!!!');
+responce.end();
+}
+
+http.createServer(onRequest).listen(3000);*/
+//timer setup:
+setTimeout(
+    ()=>{
+        console.log('.....printed after 10 second....');
+    },
+    10*1000
+);
+
+//differ timeout for same functoin
+const passage =delay=>{
+    console.log("the passage is called every time ,then the intervals is "+ delay +" mentioned");
+}
+setTimeout(passage,8*1000,8);
+setTimeout(passage,6*1000,6);
+//set-interval and clearIntervals
+
+let c=0;
+const passage1 = setInterval(()=>{
+    console.log("hello guys!@#$%");
+    c+=1;
+
+if(c===5){
+    console.log("....done 5 times..printing statements ...");
+    clearInterval(passage1);
+}
+},1000)
+//restOfItems....
+const[f,s,...restOfItems]=[12,13,14,15,16];
+console.log(f);
+console.log(s);
+console.log(restOfItems);
+
+//URL module
+
+var url = require('url');
+var address = 'http://localhost:3000/default.htm?year=2019&month=july';
+var t = url.parse(address, true);
+
+console.log(t.host);
+console.log(t.pathname); 
+console.log(t.search); 
+
+var qdata = t.query;
+console.log(qdata.month); 
+
+
+//promises wait functions
+const wait = time => new Promise((resolve) => setTimeout(resolve, time));
+wait(10000).then(() => console.log('welcome everybody!'));
+
+//promises
+let p=new Promise((resolve,reject)=>{
+    let d=2*1;
+    if(d==2){
+     resolve("success")
+    }else{
+        reject("failed")
+    }
+    
+    })
+    p.then((message)=>{
+        console.log("Success")
+    }).catch((message)=>{
+    console.log("Failed")
+    });
+
+    //call back
+     var fs=require("fs");
+     fs.readFile('new.txt',function(err,data){
+     if(err) return console.error(err);
+     return console.log(data.toString());
+});
+console.log("Program ended");
+
+//events
+
+var EventEmitter = require('events').EventEmitter; 
+var emitter = new EventEmitter(); 
+//on
+emitter.on('cricket', function () {
+    console.log('subscriber 1'); 
+}); 
+emitter.on('cricket', function () {
+    console.log('subscriber 2'); 
+}); 
+
+// Emit 
+emitter.emit('cricket'); 
