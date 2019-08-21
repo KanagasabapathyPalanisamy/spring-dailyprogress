@@ -1,0 +1,60 @@
+//commanding the interface
+
+console.log("welcome to NOde-JS");
+
+/*//file reading the file...
+
+var http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {
+  fs.readFile('file1.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    return res.end();
+  });
+}).listen(8888);
+*/
+var fs = require('fs');
+
+fs.appendFile('newfile.txt', 'Hello guys!', function (err) { //append specified the content of the file else created an empty file
+  if (err) throw err;
+  console.log('Saved!');
+});
+
+
+var fs = require('fs');
+
+fs.appendFile('newfile.txt', 'warm  welcome !', function (err) { //this method will append at end of the specified line 
+  if (err) throw err;
+  console.log('updated!');
+});
+
+
+var file1 = require('fs');
+
+file1.open('newfile2.txt', 'w', function (err, file) {  //second argument "w"-for writing else it created an empty file..
+  if (err) throw err;
+  console.log('Save the file!');
+});
+
+var file3 = require('fs');
+
+file3.writeFile('newfile3.txt', 'good specified!', function (err) {
+  if (err) throw err;
+  console.log('rewrited the content of the file!');
+});
+
+var file3 = require('fs');
+
+file3.writeFile('newfile3.txt', 'cations!', function (err) {
+  if (err) throw err;
+  console.log('updated the file3 with specified content !');
+});
+
+
+var file3 = require('fs');
+
+file3.rename('newfile3.txt', 'myrenamedfile3.txt', function (err) {  // here i renamed my file name to new one
+  if (err) throw err;
+  console.log('File Renamed!');
+});
