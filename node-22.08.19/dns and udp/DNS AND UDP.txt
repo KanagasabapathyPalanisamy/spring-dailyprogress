@@ -1,0 +1,38 @@
+                                                           DNS AND UDP :
+const dns=require('dns');
+dns.lookup("facebook.com",(err,address)=>{
+  console.log(address);
+});
+
+//if it is ipv4 address we can use!!!
+dns.resolve4("facebook.com",(err,address)=>{
+    console.log(address);
+  });
+//if it is ipv6!!!
+dns.resolve6("facebook.com",(err,address)=>{
+    console.log(address);
+  });
+//passsind ip address and get back the DOMAIN name:
+
+dns.reverse('157.240.23.35',(err,hostnames) =>{
+  console.log(hostnames);
+});
+
+//UDP DATAGRAM:
+const dgram = require('dgram');
+const PORT=3333;
+const HOST='127.0.0.1';
+//SERVER
+const server =dgram.createSocket('udp4');
+server.on('listening',() => console.log("UDP server is ready to listening"));
+server.on('message',(msg,rinfo)=>{
+    console.log(`${rinfo.address}:${rinfo.port}-${msg}`);
+});
+server.bind(PORT,HOST);
+//client
+const client =dgram.createSocket('udp4');
+ client.send('pluralsight rockesss',PORT,HOST,(err) =>{
+     if(err) throw err;
+     console.log('UDP message sent');
+     client.close();
+ });

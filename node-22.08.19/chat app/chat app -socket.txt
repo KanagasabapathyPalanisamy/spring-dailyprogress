@@ -1,0 +1,27 @@
+                                              simple  CHAT application using socket
+
+const server = require('net').createServer();
+let count=0;
+let sockets = {};
+
+server.on('connection', socket => {
+    socket.id = count++;
+    sockets[socket.id]= socket;
+
+    console.log('client connected...');
+    socket.write('welcome new client!\n');
+
+    socket.on('data', data => {
+        Object.entries(sockets).forEach(([key,cs]) =>{
+         if (socket.id == key) return;
+            cs.write(`${socket.id}: `);
+         cs.write(data);
+        });
+    });
+    socket.on('end', () => {
+        delete sockets[socket.id];
+        console.log('client disconnected');
+    });
+});
+
+server.listen(8000, () => console.log('server bound'));
