@@ -1,0 +1,17 @@
+var express = require('express');
+var chalk = require('chalk');
+var morgan = require('morgan');
+var path = require('path');
+var app=express();
+
+app.use(morgan('tiny'));
+
+app.set('views', './src/views');
+app.set('view engine', 'pug');
+app.get('/',function(req,res){
+     res,render('index',{list:['s','a','c','h','i','n']});
+     // res.sendFile(path.join(__dirname,'view/index.html'));
+})
+app.listen(3000,function(){
+    console.log(`listening on ${chalk.green(' port')}${chalk.red(' 3000')}`); //color will get changed!!!
+});
